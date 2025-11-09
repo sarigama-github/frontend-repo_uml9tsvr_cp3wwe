@@ -4,7 +4,8 @@ import { BarChart2, Heart, Share2, ListChecks, TrendingUp } from 'lucide-react';
 export default function RightPanel({ products = [] }) {
   const top = useMemo(() => products[0], [products]);
   return (
-    <aside className="hidden xl:flex w-96 shrink-0 flex-col gap-3">
+    // Single modern scroll area on the right
+    <aside className="hidden xl:flex w-96 shrink-0 h-full overflow-y-auto flex-col gap-3">
       <div className="rounded-2xl border border-zinc-200 bg-white/70 backdrop-blur p-4">
         <div className="text-sm font-semibold text-zinc-900">Product Details</div>
         {top ? (
@@ -35,7 +36,7 @@ export default function RightPanel({ products = [] }) {
         <PriceSparkline />
       </div>
 
-      <div className="rounded-2xl border border-zinc-200 bg-white/70 backdrop-blur p-4">
+      <div className="rounded-2xl border border-zinc-200 bg-white/70 backdrop-blur p-4 mb-3">
         <div className="text-sm font-semibold text-zinc-900 mb-2">Community Pulse</div>
         <div className="text-sm text-zinc-600">Shoppers similar to you are buying lightweight 14" laptops with OLED displays this week.</div>
       </div>

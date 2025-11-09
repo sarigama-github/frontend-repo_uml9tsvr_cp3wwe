@@ -1,31 +1,35 @@
-/* Minimal vertical scrollbar: ultra-thin track, rounded thumb, no visible background */
+/* Minimal vertical scrollbar: ultra-thin thumb, fully transparent track, no background */
 /* Works in WebKit (Chrome, Edge, Safari) and Firefox */
 
-/* Generic utility to apply on any scrollable container */
+/* Utility to apply on any scrollable container */
 .scrollbar-thin-modern {
   /* Firefox */
-  scrollbar-width: thin; /* makes it slim */
-  scrollbar-color: rgba(24, 24, 27, 0.35) transparent; /* thumb color, transparent track */
+  scrollbar-width: thin; /* slim */
+  scrollbar-color: rgba(24, 24, 27, 0.45) transparent; /* visible thumb, transparent track */
 }
 
 /* WebKit */
 .scrollbar-thin-modern::-webkit-scrollbar {
-  width: 6px; /* slim vertical scrollbar */
-  height: 6px; /* slim horizontal scrollbar when present */
-  background: transparent; /* no background behind track */
+  width: 4px; /* ultra-thin vertical */
+  height: 4px; /* ultra-thin horizontal if present */
+  background: transparent; /* remove scrollbar background */
 }
 
 .scrollbar-thin-modern::-webkit-scrollbar-track {
-  background: transparent; /* nearly invisible track */
+  background: transparent; /* remove track background */
 }
 
 .scrollbar-thin-modern::-webkit-scrollbar-thumb {
-  background-color: rgba(24, 24, 27, 0.35); /* neutral dark thumb */
-  border-radius: 9999px; /* fully rounded ends */
-  border: 2px solid transparent; /* creates breathing space so track is barely visible */
-  background-clip: padding-box; /* keeps the thumb crisp without gradients */
+  background-color: rgba(24, 24, 27, 0.45); /* neutral dark thumb */
+  border-radius: 9999px; /* fully rounded */
+  border: none; /* no halo/spacing so the track stays invisible */
 }
 
 .scrollbar-thin-modern::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(24, 24, 27, 0.5); /* subtle hover for accessibility */
+  background-color: rgba(24, 24, 27, 0.6); /* subtle hover only on the thumb */
+}
+
+/* Hide corner background on dual-axis scroll areas */
+.scrollbar-thin-modern::-webkit-scrollbar-corner {
+  background: transparent;
 }

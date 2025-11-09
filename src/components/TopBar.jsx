@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Bell, ChevronDown, Search } from 'lucide-react';
-import GradientBubble from './GradientBubble.jsx';
 
 export default function TopBar() {
   const [open, setOpen] = useState(false);
@@ -8,7 +7,7 @@ export default function TopBar() {
     <header className="sticky top-0 z-20 bg-white/70 backdrop-blur border-b border-zinc-200/70">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-3">
         <div className="flex-1 flex items-center gap-2">
-          <GradientBubble />
+          <div className="text-sm sm:text-base font-medium text-zinc-800">Your personal shopping expert</div>
         </div>
         <div className="hidden md:flex items-center gap-2">
           <div className="relative">

@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { Mic, Send, Sparkles, ThumbsUp, ThumbsDown, ChevronDown, Star } from 'lucide-react';
-import HeroSpline from './HeroSpline.jsx';
 
 const demoMessages = [
   {
@@ -54,11 +53,6 @@ export default function ChatInterface({ onRecommend }) {
 
   return (
     <section className="relative flex-1 min-h-[60vh] flex flex-col">
-      {/* Futuristic interactive Spline hero sits above the feed, does not scroll with it */}
-      <div className="mb-3">
-        <HeroSpline />
-      </div>
-
       {/* Chat feed (internal scroll area with minimal scrollbar) */}
       <div className="flex-1 overflow-y-auto pr-1 scrollbar-thin-modern">
         {messages.map((m) => (
@@ -205,7 +199,7 @@ const sampleProducts = [
     price: 1399,
     rating: 4.7,
     specs: '14" OLED, i7-13700H, 16GB RAM, 1TB SSD, 1.4kg',
-    image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1573978828027-e830975e272c?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxaZW5Cb29rJTIwUHJvJTIwMTQlMjBPTEVEJTIwJTI4MjAyNCUyOXxlbnwwfDB8fHwxNzYyNzA5MzA4fDA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80',
     retailers: ['Amazon', 'BestBuy', 'Direct'],
     why: 'Best display in class, great battery, silent under light workloads.'
   },
@@ -215,7 +209,7 @@ const sampleProducts = [
     price: 1499,
     rating: 4.6,
     specs: '14" IPS, i7-1255U, 16GB RAM, 512GB SSD, 1.15kg',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1657244358898-d9e110504fd8?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxUaGlua1BhZCUyMFgxJTIwQ2FyYm9uJTIwR2VuJTIwMTJ8ZW58MHwwfHx8MTc2MjcwOTMwOXww&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80',
     retailers: ['Lenovo', 'B&H'],
     why: 'Legendary keyboard, light, durable—great for travel.'
   },

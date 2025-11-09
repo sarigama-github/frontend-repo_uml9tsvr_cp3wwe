@@ -11,21 +11,29 @@ function App() {
     <div className="min-h-screen bg-[radial-gradient(1200px_600px_at_70%_-10%,rgba(99,102,241,0.08),transparent),radial-gradient(900px_500px_at_20%_10%,rgba(236,72,153,0.06),transparent)]">
       <TopBar />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex gap-4">
+      {/* 3-pane layout with independent scrolling for center and right */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex gap-4 h-[calc(100vh-64px)]">
+        {/* Left navigation + history (already has its own internal scroll) */}
         <LeftSidebar />
 
-        <main className="flex-1 flex flex-col">
+        {/* Center column: chat + discovery with its own scroll */}
+        <main className="flex-1 flex flex-col overflow-y-auto">
           <ChatInterface onRecommend={setRecommended} />
 
           {/* Discovery sections */}
-          <section className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <section className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 pb-6">
             <DiscoveryCard title="Trending This Week" items={trendingItems} />
             <DiscoveryCard title="Daily Essentials" items={dailyItems} />
             <DiscoveryCard title="Personal Picks" items={personalItems} />
           </section>
         </main>
 
-        <RightPanel products={recommended} />
+        {/* Right panel: independent scroll */}
+        <div className="hidden xl:flex w-96 shrink-0 overflow-y-auto">
+          <div className="flex-1 flex flex-col gap-3">
+            <RightPanel products={recommended} />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -61,13 +69,13 @@ const trendingItems = [
 
 const dailyItems = [
   { id: 'd1', name: 'Eco Laundry Pods', price: 24, image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop' },
-  { id: 'd2', name: 'Reusable Water Bottle', price: 32, image: 'https://images.unsplash.com/photo-1666447606111-33167792af81?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxDZXJhbWljJTIwRHJpcHBlcnxlbnwwfDB8fHwxNzYyNzA0MDY0fDA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80' },
+  { id: 'd2', name: 'Reusable Water Bottle', price: 32, image: 'https://images.unsplash.com/photo-1666447606111-33167792af81?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxDZXJraW0lMjBEcmlwcGVyfGVufDB8MHx8fDE3NjI3NjE1OTJ8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80' },
   { id: 'd3', name: 'USB-C Fast Cable', price: 12, image: 'https://images.unsplash.com/photo-1527689368864-3a821dbccc34?q=80&w=600&auto=format&fit=crop' },
 ];
 
 const personalItems = [
   { id: 'p1', name: 'Compact 14" Laptop Stand', price: 45, image: 'https://images.unsplash.com/photo-1473091534298-04dcbce3278c?q=80&w=600&auto=format&fit=crop' },
-  { id: 'p2', name: 'Silent Wireless Mouse', price: 29, image: 'https://images.unsplash.com/photo-1696150874769-ea4f30453c2c?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxVU0ItQyUyMEZhc3QlMjBDYWJsZXxlbnwwfDB8fHwxNzYyNzA0MDY0fDA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80' },
+  { id: 'p2', name: 'Silent Wireless Mouse', price: 29, image: 'https://images.unsplash.com/photo-1696150874769-ea4f30453c2c?q=80&w=1600&auto=format&fit=crop' },
   { id: 'p3', name: 'Desk Cable Organizer', price: 14, image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=600&auto=format&fit=crop' },
 ];
 

@@ -5,7 +5,7 @@ export default function RightPanel({ products = [] }) {
   const top = useMemo(() => products[0], [products]);
   return (
     // Single modern scroll area on the right
-    <aside className="hidden xl:flex w-96 shrink-0 h-full overflow-y-auto flex-col gap-3">
+    <aside className="hidden xl:flex w-96 shrink-0 h-full overflow-y-auto flex-col gap-3 scrollbar-thin-modern">
       <div className="rounded-2xl border border-zinc-200 bg-white/70 backdrop-blur p-4">
         <div className="text-sm font-semibold text-zinc-900">Product Details</div>
         {top ? (

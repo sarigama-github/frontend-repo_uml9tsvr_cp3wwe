@@ -53,8 +53,8 @@ export default function ChatInterface({ onRecommend }) {
 
   return (
     <section className="relative flex-1 min-h-[60vh] flex flex-col">
-      {/* Chat feed (hero removed as requested) */}
-      <div className="flex-1 overflow-y-auto pr-1">
+      {/* Chat feed (internal scroll area with minimal scrollbar) */}
+      <div className="flex-1 overflow-y-auto pr-1 scrollbar-thin-modern">
         {messages.map((m) => (
           <MessageBubble key={m.id} role={m.role} content={m.content} products={m.products} summary={m.summary} />
         ))}

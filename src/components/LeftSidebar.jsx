@@ -29,7 +29,7 @@ export default function LeftSidebar() {
   const [activeId, setActiveId] = useState('c1');
 
   return (
-    <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-zinc-200/70 bg-white/70 backdrop-blur-xl overflow-y-auto">
+    <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-zinc-200/70 bg-white/70 backdrop-blur-xl overflow-y-auto scrollbar-thin-modern">
       <div className="px-4 py-4 border-b border-zinc-200/70">
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-orange-400" />

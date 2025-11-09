@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Mic, Send, Sparkles, ThumbsUp, ThumbsDown, ChevronDown, Star } from 'lucide-react';
+import HeroSpline from './HeroSpline.jsx';
 
 const demoMessages = [
   {
@@ -53,8 +54,11 @@ export default function ChatInterface({ onRecommend }) {
 
   return (
     <section className="relative flex-1 min-h-[60vh] flex flex-col">
-      {/* Chat feed (internal scroll area with minimal scrollbar) */}
+      {/* Chat feed (internal scroll area with modern hero on top) */}
       <div className="flex-1 overflow-y-auto pr-1 scrollbar-thin-modern">
+        <div className="pt-2 pb-3">
+          <HeroSection />
+        </div>
         {messages.map((m) => (
           <MessageBubble key={m.id} role={m.role} content={m.content} products={m.products} summary={m.summary} />
         ))}
@@ -89,6 +93,25 @@ export default function ChatInterface({ onRecommend }) {
         </div>
       </div>
     </section>
+  );
+}
+
+function HeroSection() {
+  return (
+    <div className="relative">
+      {/* Fintech glass-morphic header card with Spline hero */}
+      <div className="relative rounded-2xl border border-zinc-200/70 bg-white/70 backdrop-blur-xl p-3">
+        <div className="h-56 sm:h-72 md:h-[26rem]">
+          <HeroSpline />
+        </div>
+        {/* Subtle top gradient to blend into chat */}
+        <div className="pointer-events-none absolute inset-0 rounded-2xl" />
+      </div>
+      <div className="mt-2 flex items-center justify-between px-1">
+        <div className="text-xs text-zinc-500">Modern, minimalist shopping AI • Fintech-inspired 3D card</div>
+        <div className="text-[11px] px-2 py-1 rounded-full bg-zinc-900 text-white">Live</div>
+      </div>
+    </div>
   );
 }
 
@@ -141,7 +164,7 @@ function MessageBubble({ role, content, products, summary }) {
 
 function ProductCard({ product }) {
   return (
-    <div className="group rounded-xl border border-zinc-200 bg-white p-2.5 hover:shadow-md transition">
+    <div className="group rounded-xl border border-zinc-200 bg-white/80 backdrop-blur p-2.5 hover:shadow-md transition">
       <div className="aspect-video w-full rounded-lg bg-gradient-to-br from-zinc-100 to-zinc-200 mb-2 overflow-hidden">
         <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
       </div>

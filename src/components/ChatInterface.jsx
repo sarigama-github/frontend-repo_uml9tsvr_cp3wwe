@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Mic, Send, Sparkles, ThumbsUp, ThumbsDown, ChevronDown, Star } from 'lucide-react';
+import HeroSpline from './HeroSpline.jsx';
 
 const demoMessages = [
   {
@@ -53,6 +54,11 @@ export default function ChatInterface({ onRecommend }) {
 
   return (
     <section className="relative flex-1 min-h-[60vh] flex flex-col">
+      {/* Futuristic interactive Spline hero sits above the feed, does not scroll with it */}
+      <div className="mb-3">
+        <HeroSpline />
+      </div>
+
       {/* Chat feed (internal scroll area with minimal scrollbar) */}
       <div className="flex-1 overflow-y-auto pr-1 scrollbar-thin-modern">
         {messages.map((m) => (
